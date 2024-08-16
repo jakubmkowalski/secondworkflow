@@ -2,6 +2,7 @@ name: Second Workflow
 
 on:
   workflow_dispatch:
+    types: [start_regression_tests]
 
 jobs:
   run_tests:
