@@ -1,11 +1,8 @@
 name: Generate Artifact
 
 on:
-  workflow_dispatch:
-    inputs:
-      param1:
-        description: "An example input parameter"
-        required: true
+  repository_dispatch:
+    types: [start_regression_tests]
 
 jobs:
   build-and-generate:
