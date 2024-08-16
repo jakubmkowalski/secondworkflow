@@ -1,23 +1,32 @@
-name: Second Workflow
+name: Generate Artifact
 
 on:
-  repository_dispatch:
-    types: [start_regression_tests]
+  workflow_dispatch:
+    inputs:
+      param1:
+        description: "An example input parameter"
+        required: true
 
 jobs:
-  run_tests:
+  build-and-generate:
     runs-on: ubuntu-latest
     steps:
-      - name: Run some tests
-        run: |
-          echo "Running tests"
-          TEST_STATUS="success"  # Simulate test outcome
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Notify First Workflow
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Build Project
         run: |
-          curl -X POST -H "Authorization: token $GH_TOKEN" \
-               -H "Accept: application/vnd.github.everest-preview+json" \
-               https://api.github.com/repos/jakubmkowalski/firstworkflow/dispatches \
-               -d '{"event_type":"notify-first-workflow","client_payload":{"status":"'"${TEST_STATUS}"'"}}'
+          # Add commands to build your project here
+          echo "Building project..."
+
+      - name: Generate Artifact
+        run: |
+          # Replace with your artifact generation steps
+          mkdir -p artifacts
+          echo "Generated artifact content" > artifacts/desired_artifact_name.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: desired_artifact_name
+          path: artifacts/desired_artifact_name.txt
