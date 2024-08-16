@@ -4,6 +4,10 @@ on:
   repository_dispatch:
     types: [start_regression_tests]
 
+env:
+  ACTIONS_RUNNER_DEBUG: true
+  ACTIONS_STEP_DEBUG: true
+
 jobs:
   run_tests:
     runs-on: ubuntu-latest
