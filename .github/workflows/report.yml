@@ -16,7 +16,7 @@ jobs:
       - name: Build Project
         run: |
           # Add commands to build your project here
-          echo "Building project..."
+          echo "Building project on branch ${{ github.event.client_payload.branch }}"
 
       - name: Generate Artifact
         run: |
