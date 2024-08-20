@@ -26,8 +26,7 @@ jobs:
       - name: Generate Artifact
         run: |
           # Replace with your artifact generation steps
-          mkdir -p artifacts
-          echo "Generated artifact content" > artifacts/desired_artifact_name.txt
+          echo "Generated artifact content" > test_status.txt
 
       - name: Upload Test Status Artifact
         uses: actions/upload-artifact@v4
