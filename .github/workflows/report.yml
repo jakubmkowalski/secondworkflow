@@ -27,6 +27,7 @@ jobs:
         run: |
           # Replace with your artifact generation steps
           echo "Generated artifact content" > test_status.txt
+        shell: bash
 
       - name: Upload Test Status Artifact
         uses: actions/upload-artifact@v4
