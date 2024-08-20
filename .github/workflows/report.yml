@@ -13,6 +13,11 @@ jobs:
         with:
           ref: ${{ github.event.client_payload.branch }}
 
+      - name: List Files in Main Repo Folder
+        run: |
+          echo "Listing files in the main repository folder:"
+          ls -la
+
       - name: Build Project
         run: |
           # Add commands to build your project here
