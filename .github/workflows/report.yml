@@ -29,8 +29,8 @@ jobs:
           mkdir -p artifacts
           echo "Generated artifact content" > artifacts/desired_artifact_name.txt
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload Test Status Artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: desired_artifact_name
-          path: artifacts/desired_artifact_name.txt
+          name: success_${{ github.event.client_payload.branch }}_${{ github.run_id }}
+          path: test_status.txt
