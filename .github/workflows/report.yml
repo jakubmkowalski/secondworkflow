@@ -32,5 +32,5 @@ jobs:
       - name: Upload Test Status Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: success_${{ github.event.client_payload.branch }}_${{ github.run_id }}
+          name: success_${{ github.event.client_payload.run_id }}_${{ github.run_id }}
           path: test_status.txt
